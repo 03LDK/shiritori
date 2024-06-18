@@ -9,7 +9,12 @@
 <body>
     <h2>しりとり</h2>
     <p> {{ word }} が入力されました。末尾が「ん」になっています。ゲームを終了します。</p>
-
+    <p>しりとりが{{ len_words }}回続きました。</p>
+    <ul>{{ start_word }}→
+        {% for item in words %}
+          <l1>{{ item }}{% if not loop.last %}→{% endif %}</l1>
+        {% endfor %}
+    </ul>
     <form action="/reset">
         <button type="submit">リセット</button>
     </form>

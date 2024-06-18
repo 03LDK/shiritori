@@ -12,15 +12,18 @@
   
     <form action="/enter" method="post">
         <label for="word"></label>
-        <input type="text" id="word" name="word">
+        <input type="text" id="word" name="word" pattern="[\u3041-\u3096ー]+" title="ひらがなのみ入力してください">
         <button type="submit">送信</button>
     </form>
-
     <form action="/reset">
         <button type="submit">リセット</button>
     </form>
-
   <p>{{ miss }}</p>
+  <ul>{{ start_word }}→
+    {% for item in words %}
+      <l1>{{ item }}{% if not loop.last %}→{% endif %}</l1>
+    {% endfor %}
+  </ul>
 
 </body>
 </html>
